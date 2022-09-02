@@ -8,7 +8,7 @@ const Charts = () => {
       type: 'spline',
     },
     title: {
-      text: 'My chart',
+      text: 'Crypto Chart',
     },
     series: [
       {

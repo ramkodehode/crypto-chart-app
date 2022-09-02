@@ -1,10 +1,17 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Charts from './components/Charts';
+import CoinPage from './pages/CoinPage';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
     <>
-      <Charts />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/coins" element={<CoinPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
