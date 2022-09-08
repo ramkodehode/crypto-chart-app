@@ -3,8 +3,18 @@ import React from 'react';
 const Coin = ({ name, price }) => {
   return (
     <div>
-      <h1>{name}</h1>
-      <h2>{price}</h2>
+      <table>
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+          </tr>
+          <tr>
+            <th>{name}</th>
+            <th>{price}</th>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

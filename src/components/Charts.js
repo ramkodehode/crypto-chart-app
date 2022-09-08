@@ -1,17 +1,11 @@
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
+import Select from 'react-select';
 
 const Charts = () => {
   const options = {
     chart: {
-      type: 'spline',
-    },
-    exporting: {
-      button: [
-        {
-          text: 'testing',
-        },
-      ],
+      type: 'line',
     },
 
     title: {
@@ -19,9 +13,10 @@ const Charts = () => {
     },
     series: [
       {
-        data: [0, 2, 9, 6],
+        data: [0, 2, 9, 10, 11],
       },
     ],
+
     rangeSelector: {
       enabled: true,
       inputEnabled: false,
@@ -33,24 +28,26 @@ const Charts = () => {
       allButtonsEnabled: true,
       buttons: [
         {
-          onclick: () => {
-            console.log('Hello there');
-          },
-          type: 'year',
+          type: 'days',
           count: 1,
           text: '1 Year',
           dataGrouping: {
             forced: true,
-            units: [['day', [1]]],
+            units: [['year', [1]]],
           },
         },
         {
-          type: 'year',
+          type: 'days',
           count: 1,
           text: '5 years',
+          events: {
+            click: function () {
+              alert('Clicked button');
+            },
+          },
           dataGrouping: {
             forced: true,
-            units: [['week', [1]]],
+            units: [['year', [1]]],
           },
         },
         {
@@ -58,14 +55,14 @@ const Charts = () => {
           text: 'Max',
           dataGrouping: {
             forced: true,
-            units: [['month', [1]]],
+            units: [['year', [1]]],
           },
         },
       ],
       buttonTheme: {
-        width: 60,
+        width: 100,
+        padding: 20,
       },
-      selected: 2,
     },
   };
 
@@ -74,7 +71,7 @@ const Charts = () => {
       <HighchartsReact
         highcharts={Highcharts}
         options={options}
-        constructorType={'stockChart'}
+        constructorType={''}
       ></HighchartsReact>
     </>
   );
